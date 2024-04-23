@@ -17,9 +17,9 @@ pipeline {
         }
         stage('Login to Docker Hub') {
             steps {
-                withCredentials([string(credentialsId: 'test-drr', variable: 'drr')]) {
+                withCredentials([string(credentialsId: 'drr-test', variable: 'test-drr')]) {
    
-               bat'docker login -u dragondrr -p ${drr}'
+               bat'docker login -u dragondrr -p ${test-drr}'
                 }
             }
         }
