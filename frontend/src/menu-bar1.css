@@ -1,0 +1,56 @@
+/* menu-bar1.css */
+
+/* Navbar styles */
+.navbar {
+  background-color: #020202; /* Change the background color to your preference */
+  padding: 10px 0;
+}
+
+.navbar-brand {
+  color: #fff; /* Navbar brand text color */
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Navigation links styles */
+.nav-link {
+  color: #131212; /* Navigation link text color */
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #007BFF; /* Navigation link text color on hover */
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+  background-color: #f4f1f1; /* Dropdown menu background color */
+}
+
+.dropdown-item {
+  color: #fff; /* Dropdown item text color */
+}
+
+.dropdown-item:hover {
+  background-color: #007BFF; /* Dropdown item background color on hover */
+  color: #fff; /* Dropdown item text color on hover */
+}
+
+/* Search bar styles */
+.form-control {
+  border: none;
+  background-color: #e6dfdf; /* Search bar background color */
+  color: #fff; /* Search bar text color */
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.btn-outline-success {
+  color: #007BFF; /* Button text color */
+  border-color: #007BFF; /* Button border color */
+}
+
+/* Center the search bar vertically in the navbar */
+.d-flex {
+  align-items: center;
+}
