@@ -1,37 +1,29 @@
+
 pipeline {
-    agent any 
-   
+    agent any
     
-    stages { 
-        stage('SCM Checkout') {
+    stages {
+        stage('Checkout') {
             steps {
-                retry(3) {
-                    git branch: 'main', url: 'https://github.com/Dhanith-Randula/Introduction-New-Product-Web-Project.git'
+                // Checkout code from the repository
+                git 'https://github.com/Dhanith-Randula/4149_Randula.git'
+            }
+        }
+        stage('Dockerize') {
+            steps {
+                // Build Docker image
+                script {
+                    docker.build('my-app')
                 }
             }
         }
-        stage('Build Docker Image') {
-            steps {  
-                bat 'docker build -t dragondrr/my-app:%BUILD_NUMBER% .'
-            }
-        }
-        stage('Login to Docker Hub') {
+        stage('Run Container') {
             steps {
-                withCredentials([string(credentialsId: 'test-drr', variable: 'dragon-test')]) {
-   
-               bat'docker login -u dragondrr -p ${dragon-test}'
+                // Run Docker container
+                script {
+                    docker.image('my-app').run('-p 3000:3000')
                 }
             }
-        }
-        stage('Push Image') {
-            steps {
-                bat 'docker push dragondrr/my-app:%BUILD_NUMBER%'
-            }
-        }
-    }
-    post {
-        always {
-            bat 'docker logout'
         }
     }
 }
